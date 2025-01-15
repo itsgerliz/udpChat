@@ -1,5 +1,8 @@
 use clap::Parser;
-use log::{error, warn, info, debug};
+use log::{info, debug};
+
+mod client;
+mod server;
 
 #[derive(Parser)]
 #[command(version, about)]
@@ -18,11 +21,13 @@ fn main() {
     env_logger::init();
     debug!("Initiated logger!");
 
-    let target_addr = todo!();
+    let target_addr = (args.target.as_str(), args.target_port);
 
     if args.server == true {
-        todo!()
+        info!("Initiating server...");
+        server::init(&target_addr);
     } else {
+        info!("Initiating client...");
         todo!()
     }
 
