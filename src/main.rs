@@ -28,7 +28,7 @@ fn main() {
         server::init(&target_addr);
     } else {
         info!("Initiating client...");
-        todo!()
+        client::init(&target_addr);
     }
 
 }
