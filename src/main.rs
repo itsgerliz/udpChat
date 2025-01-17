@@ -4,9 +4,6 @@ use log::{info, debug};
 mod client;
 mod server;
 
-const HEADER_MAGIC: &[u8] = "udpChat".as_bytes();
-const UDPCHAT_VER: &[u8] = "v1.0.0".as_bytes();
-
 #[derive(Parser)]
 #[command(version, about)]
 struct CliArgs {

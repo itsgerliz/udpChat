@@ -1,7 +1,12 @@
 use std::net::{UdpSocket, SocketAddr};
 use std::process::exit;
 use log::{error, warn, info, debug};
-use crate::{HEADER_MAGIC, UDPCHAT_VER};
+
+const HEADER_SIZE: u8 = 9;
+const HEADER_MAGIC: &[u8] = "udpChat".as_bytes();
+const HEADER_VERSION: u16 = 100;
+const HEADER_MSGT_LOGIN: u8 = 0x01;
+const HEADER_MSGT_LOGOUT: u8 = 0x02;
 
 struct Client {
 	id: u8,
@@ -23,16 +28,11 @@ pub(crate) fn init(target: &(&str, u16)) {
 	let mut next_id: u8 = 1;
 
 	loop {
-		match check(&socket, next_id) {
-			Option::Some(_) => {
-				next_id += 1;
-			}
-			Option::None => ()
-		}
+		todo!()
 	}
-
 }
 
+/*
 fn check(socket: &UdpSocket, next_id: u8) -> Option<Client> {
 	let mut buffer: [u8; 14] = [0; 14];
 	match socket.recv_from(&mut buffer) {
@@ -70,3 +70,4 @@ fn check(socket: &UdpSocket, next_id: u8) -> Option<Client> {
 		}
 	}
 }
+*/
