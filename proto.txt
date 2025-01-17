@@ -1,6 +1,6 @@
 NOTE: All text is encoded in UTF-8
-Header total size: 512 bytes
-0        6|7           8|9           10/11                   512 (max)
+Header total size: 9 bytes
+0        6|7           8|9            9|10                   512 (max)
 +---------+-------------+--------------+----------------------+
 |         |   udpChat   |              |                      |
 | udpChat |   version   | Message type |       Payload        |
