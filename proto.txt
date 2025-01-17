@@ -1,3 +1,12 @@
-Header: 13 bytes
---------------udpChat-------------| vX.X.X | LF
-0x75 0x64 0x70 0x43 0x68 0x61 0x74| 6bytes | 0x0A
+NOTE: All text is encoded in UTF-8
+Header total size: 512 bytes
+0        6|7           8|9           10/11                   512 (max)
++---------+-------------+--------------+----------------------+
+|         |   udpChat   |              |                      |
+| udpChat |   version   | Message type |       Payload        |
+|         |    (u16)    |              |                      |
++---------+-------------+--------------+----------------------+
+
+Message types:
+-> LOGIN = 0x01
+-> LOGOUT = 0x02
