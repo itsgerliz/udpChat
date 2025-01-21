@@ -1,7 +1,7 @@
 use std::net::UdpSocket;
 use std::process::exit;
 use log::{error, info, debug};
-use crate::server::{HEADER_MAGIC, HEADER_MSGT_LOGIN, HEADER_SIZE, HEADER_VERSION};
+use crate::{HEADER_SIZE, HEADER_MAGIC, HEADER_VERSION, HEADER_MSGT_LOGIN};
 
 pub(crate) fn init(target: &(&str, u16)) {
 	let socket = match UdpSocket::bind(*target) {

@@ -1,12 +1,7 @@
 use std::net::{UdpSocket, SocketAddr};
 use std::process::exit;
 use log::{error, info, debug};
-
-pub(crate) const HEADER_SIZE: u8 = 9;
-pub(crate) const HEADER_MAGIC: &[u8] = "udpChat".as_bytes();
-pub(crate) const HEADER_VERSION: u8 = 0x1;
-pub(crate) const HEADER_MSGT_LOGIN: u8 = 0x1;
-pub(crate) const HEADER_MSGT_LOGOUT: u8 = 0x2;
+use crate::{HEADER_MAGIC, HEADER_VERSION, HEADER_MSGT_LOGIN};
 
 struct Client {
 	inner: SocketAddr
@@ -27,7 +22,7 @@ pub(crate) fn init(target: &(&str, u16)) {
 	loop {
 		match accept(&socket) {
 			Some(client) => info!("Client registered"),
-			None => ()
+			None => continue
 		}
 	}
 }
