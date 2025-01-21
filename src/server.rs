@@ -48,7 +48,7 @@ fn accept(socket: &UdpSocket) -> Option<Client> {
 				buffer[7] == HEADER_VERSION &&
 				buffer[8] != HEADER_MSGT_LOGIN
 			{
-				info!("Client sent invalid operation, connection dropped");
+				info!("Client must send login first, connection dropped");
 				None
 			}
 			else {
