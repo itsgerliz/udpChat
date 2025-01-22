@@ -1,7 +1,7 @@
 use std::net::{UdpSocket, SocketAddr};
 use std::process::exit;
 use log::{error, info, debug};
-use crate::{HEADER_MAGIC, HEADER_VERSION, HEADER_MSGT_LOGIN};
+use crate::{HEADER_MAGIC, HEADER_MSGT_LOGIN, HEADER_TOTAL_SIZE, HEADER_VERSION};
 
 struct Client {
 	inner: SocketAddr
@@ -28,7 +28,7 @@ pub(crate) fn init(target: &(&str, u16)) {
 }
 
 fn accept(socket: &UdpSocket) -> Option<Client> {
-	let mut buffer: [u8; 512] = [0; 512];
+	let mut buffer: [u8; HEADER_TOTAL_SIZE as usize] = [0; HEADER_TOTAL_SIZE as usize];
 	match socket.recv_from(&mut buffer) {
 		Ok(peer) => {
 			info!("Incoming connection from {}", peer.1);

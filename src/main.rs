@@ -5,6 +5,7 @@ mod client;
 mod server;
 
 pub(crate) const HEADER_SIZE: u8 = 9;
+pub(crate) const HEADER_TOTAL_SIZE: u16 = 512;
 pub(crate) const HEADER_MAGIC: &[u8] = "udpChat".as_bytes();
 pub(crate) const HEADER_VERSION: u8 = 0x1;
 pub(crate) const HEADER_MSGT_LOGIN: u8 = 0x1;
